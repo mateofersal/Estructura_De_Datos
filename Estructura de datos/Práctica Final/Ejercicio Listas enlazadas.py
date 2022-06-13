@@ -7,7 +7,6 @@ class ListaEnlazada:
     def __init__(self):
         self.cabeza = None
         self.cola = None
-        print('hola')
 
     def agregar(self, valor):
         nodo = Nodo(valor)
