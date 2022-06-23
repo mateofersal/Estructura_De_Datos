@@ -1,0 +1,3 @@
+censr
+comprar comida
+D:\Códigos\Códigos Python\Proyecto Final\lista_tareas.txt

@@ -110,6 +110,24 @@ class ListaEnlazadaDoble:
             if actual.valor > prom:
                 print(actual.valor, end=' ')
             actual = actual.sgte
+            
+    def borrar_mayores(self, valor):
+        while self.cabeza.valor > valor:
+            self.cabeza.sgte.ante = None
+            self.cabeza = self.cabeza.sgte
+            
+        while self.cola.valor > valor:
+            self.cola.ante.sgte = None
+            self.cola = self.cola.ante
+            
+        actual = self.cabeza
+        
+        while actual:
+            if actual.valor > valor:
+                actual.ante.sgte = actual.sgte
+                actual.sgte.ante = actual.ante
+            actual = actual.sgte
+        
 
 def particular(num):
 
@@ -134,19 +152,13 @@ def enteros_promedios_mayoresL2():
 
 print('lista1')
 lista1 = ListaEnlazadaDoble()
-lista1.agregar(7.6)
 lista1.agregar(7)
-lista1.agregar(4.5)
+lista1.agregar(7)
+lista1.agregar(4)
 lista1.agregar(8)
 lista1.mostrar()
+lista1.borrar_mayores(5)
+lista1.mostrar()
 
-print('lista2')
-lista2 = ListaEnlazadaDoble()
-lista2.agregar(8)
-lista2.agregar(7)
-lista2.agregar(4.1)
-lista2.agregar(3)
-lista2.mostrar()
 
-#particular(7)
-enteros_promedios_mayoresL2()
+
